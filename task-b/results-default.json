@@ -1,0 +1,99 @@
+{
+  "run_at": "2026-07-26T23:20:46.112147+00:00",
+  "model": "qwen2.5:0.5b-instruct",
+  "endpoint": "http://127.0.0.1:11434/api/chat",
+  "parameters": {
+    "temperature": 0,
+    "seed": 42,
+    "max_tokens": 96
+  },
+  "system_prompt": "Return only a concise answer to the user's question. Do not add labels or explanations.",
+  "judge_system_prompt": null,
+  "scoring": "exact match, otherwise fact coverage",
+  "summary": {
+    "total": 3,
+    "error": 0,
+    "pass": 0,
+    "fail": 3,
+    "pass_rate": 0.0,
+    "judge_enabled": false,
+    "default_summary": {
+      "total": 3,
+      "error": 0,
+      "pass": 0,
+      "fail": 3,
+      "pass_rate": 0.0
+    },
+    "judge_summary": null
+  },
+  "cases": [
+    {
+      "id": "q1",
+      "input": "What is the leave policy?",
+      "expected": "14 days annual leave",
+      "output": "The leave policy varies by organization and can include vacation days, sick leave, personal time off, and other types of paid or unpaid time off.",
+      "exact_match": false,
+      "default_score": 0.0,
+      "default_score_source": "fact_coverage",
+      "score": 0.0,
+      "score_source": "fact_coverage",
+      "fact_coverage": {
+        "matched": [],
+        "missing": [
+          "14 days",
+          "annual leave"
+        ],
+        "score": "0/2"
+      },
+      "status": "fail",
+      "reason": "score below 1.0",
+      "latency_ms": 513.4
+    },
+    {
+      "id": "q2",
+      "input": "Who approves travel claims?",
+      "expected": "Direct manager",
+      "output": "Travel claim approval is typically handled by the airline, but it can also be done through an independent third-party agency or directly with the customer.",
+      "exact_match": false,
+      "default_score": 0.0,
+      "default_score_source": "fact_coverage",
+      "score": 0.0,
+      "score_source": "fact_coverage",
+      "fact_coverage": {
+        "matched": [],
+        "missing": [
+          "Direct manager"
+        ],
+        "score": "0/1"
+      },
+      "status": "fail",
+      "reason": "score below 1.0",
+      "latency_ms": 275.3
+    },
+    {
+      "id": "q3",
+      "input": "What is the referral bonus?",
+      "expected": "500 per employee referred, but no more than 2000 per quarter and the employee must pass their probation period, which typically lasts 1 year",
+      "output": "The referral bonus is an incentive given to customers who refer new customers to your business.",
+      "exact_match": false,
+      "default_score": 0.0,
+      "default_score_source": "fact_coverage",
+      "score": 0.0,
+      "score_source": "fact_coverage",
+      "fact_coverage": {
+        "matched": [],
+        "missing": [
+          "500 per employee referred",
+          "no more than 2000 per quarter",
+          "must pass probation",
+          "probation typically lasts 1 year"
+        ],
+        "score": "0/4"
+      },
+      "status": "fail",
+      "reason": "score below 1.0",
+      "latency_ms": 212.1
+    }
+  ],
+  "anomalies": []
+}
