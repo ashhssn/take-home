@@ -1,0 +1,3 @@
+{"id":"q1","input":"What is the leave policy?","expected":"14 days annual leave"}
+{"id":"q2","input":"Who approves travel claims?","expected":"Direct manager"}
+{"id":"q3","input":"What is the referral bonus?","expected":"500 per employee referred, but no more than 2000 per quarter and the employee must pass their probation period, which typically lasts 1 year"}
