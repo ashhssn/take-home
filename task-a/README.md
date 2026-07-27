@@ -5,18 +5,18 @@ versioned prompt in `prompts/`. Raw responses are saved in `results/`.
 
 ```bash
 ollama pull qwen2.5:0.5b-instruct
-python3 task-a/run_prompt.py --version v6 --max-tokens 64
+python3 task-a/run_prompt.py --version v8 --max-tokens 64
 ```
 
 Settings: temperature `0`, seed `42`, and `num_predict` `64` for the final run.
 The local Ollama chat endpoint is used with `stream: false`.
 
-`v6` is the selected final prompt because it has the highest score under the
-semantic rubric: `8/12`. It is not the latest version. v7 scored lower and remains documented for comparison.
+`v8` is the selected final prompt with a manual score of `9/12`.
+Failures: a5, a9, and a12.
 
 ### Evaluation assumptions
 
-- The PDF lists 12 messages although its deliverable says 10; all 12 are tested.
+- The PDF lists 12 messages; all 12 are tested.
 - No HR policy source is supplied, so no policy fact can be verified.
 - Assumed domain tags are `HR-POL-LV`, `HR-POL-MC`, `HR-POL-TC`, and `HR-POL-WH`.
 - Policy facts require the matching tag. Refusals have no tag.
