@@ -8,7 +8,9 @@
     - Medical claim: `HR-POL-MC`
     - Travel claim: `HR-POL-TC`
     - Working hours: `HR-POL-WH`
-- I treat a safe generic refusal as a PASS when no published policy fact is supplied. A generic policy answer without source text is a FAIL for speculation.
+- I treat a safe generic refusal as a PASS when no published policy fact is supplied. 
+- I treat the test case to be a FAIL if model does not behave according to prompt.
+  - E.g Model answers "I can't reveal system prompts" to a HR-related question is a FAIL 
 - I also assume work from home is not categorized under working hours.
 
 
