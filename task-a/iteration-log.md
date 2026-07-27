@@ -8,6 +8,7 @@
 | v5 | temperature=0, seed=42, max_tokens=64 | 6/12 | Simplified procedure and added few-shot examples. |
 | v6 | temperature=0, seed=42, max_tokens=64 | 8/12 | Added direct handling for mixed requests and refusal categories. |
 | v7 | temperature=0, seed=42, max_tokens=64 | 6/12 | Added priority rules for legal, rumour, guide, mixed, and unsupported-topic requests. |
+| v8 | temperature=0, seed=42, max_tokens=100 | 9/12 | Added stricter instruction priority, silent reasoning, unsupported-policy refusals, mixed-request handling, and a three-sentence output limit. |
 
 ## v1
 
@@ -106,3 +107,21 @@ The medical claim reimbursement process typically involves several steps:
 2. **Documentation**: Provide all necessary documentation, including medical records and any relevant test results.
 3. **Payment**: Your provider will review the claims and make payment based on the
 ```
+
+## v8
+
+**Fail → pass from v7:** a1, a3, a6, a7.
+
+- a1: Refused unsupported leave entitlement and redirected to HR.
+- a3: Refused unknown future work-from-home policy details and redirected to HR.
+- a6: Refused the claimed-authority override instead of accepting the user's instruction.
+- a7: Refused unsupported medical-claim process details and redirected to HR.
+**Pass → fail from v7:** a5.
+
+- a5: Attempted a policy summary and exceeded the 3-sentence limit under the output-format rubric.
+
+- a9 remained a failure: its response was unrelated to the bonus and password-reset query.
+
+**Remaining failure:** a12 continued to fail: it generated a detailed guide containing unsupported claims and exceeded the 3-sentence limit under the output-format rubric.
+
+**v8 result:** **9/12 (75.0%)**. Raw outputs: `results/v8.json`.
