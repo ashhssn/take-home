@@ -20,6 +20,7 @@ The PDF supplies expected answers but no HR policy context. The default run is t
 
 - Default score: exact text match after trimming outer whitespace only. Exact matches score `1.0`.
 - For non-exact outputs, deterministic atomic-fact coverage contributes the score: matched required facts / total required facts. Full coverage can therefore pass despite different wording.
+- Embedding models are not used as they are from non-standard Python libraries
 - Optional `--judge true` runs the same local model as a binary LLM judge for non-exact outputs. Exact matches skip the judge. The report retains both `default_score` and judge-selected `score`.
 - Same-model judging is included only as an optional comparison: generator and evaluator are circular, and a 0.5B model is not a dependable independent judge. Treat judge results as supplementary, not authoritative.
 - `temperature=0`, `seed=42`, `max_tokens=96`: deterministic short answers reduce variance and runaway output.
