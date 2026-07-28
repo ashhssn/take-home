@@ -41,6 +41,8 @@ Part A final settings: temperature `0`, seed `42`, and `num_predict` `64`.
 ### Assumptions
 - I assume that this part is solely for evaluating the base LLM `qwen2.5:0.5b-instruct` and no specific system prompt towards getting a response as close to the examples are allowed
 - I assume generic system prompt is allowed to maintain response length and quality of LLM.
+- I assume non-standard python library (e.g transformers, llm-specific embedding libraries) are allowed to be used.
+  - This assumption rules out an embedding-based semantic approach to evaluating outputs.
 
 ### Dir structure
 
